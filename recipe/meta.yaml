@@ -8,9 +8,7 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  path: ../.
 
 build:
   number: 0
@@ -28,12 +26,12 @@ requirements:
     - pybind11
     - blas 1.1 {{ variant }}  # [not win]
     - openblas 0.2.19|0.2.19.*  # [not win]
-    - numpy x.x
+    - numpy >=1.11
   run:
     - python
     - blas 1.1 {{ variant }}  # [not win]
     - openblas 0.2.19|0.2.19.*  # [not win]
-    - numpy x.x
+    - numpy >=1.11
     - setuptools  # [win]
     - vs2015_runtime  # [win]
 
